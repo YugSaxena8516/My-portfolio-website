@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yug Saxena - Portfolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #38bdf8;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #6366f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        div.logo {
+            align-items: center;
+            display: flex;
+        }
+
+        div.logo img {
+
+            width: 60px;
+            height: 60px;
+            border-radius: 60%;
+        }
+        span {
+            font-size: 2rem;
+            color: orangered;
+        }
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 0 10%;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual img {
+            width: min(100%, 470px);
+            height: 470px;
+            object-fit: cover;
+            border-radius: 26px;
+            border: 4px solid rgba(56, 189, 248, 0.35);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5);
+        }
+
+        .hero-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .project-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Education & Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+        }
+
+        .timeline-item .sub {
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-sub);
+        }
+
+        /* Contact */
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #090d16;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                padding-top: 100px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual {
+                width: 100%;
+            }
+
+            .hero-visual img {
+                width: min(80vw, 360px);
+                height: 360px;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><span><i class = "fa-brands fa-react"></i></span>   YUG.web</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h3>Hello, I'm</h3>
+            <h1>Yug Saxena</h1>
+            <p>A passionate <strong>Java Full Stack Developer</strong> & final year BCA (AI) student. I love building web applications and exploring Machine Learning solutions.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Work</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <img src="yug.jpeg" alt="Yug Saxena">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-sub);">
+            I am a Bachelor of Computer Applications (AI) student at Invertis University with a strong foundation in Java, Data Structures, Algorithms, and Full Stack Web Development. I enjoy turning complex problems into scalable software solutions.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-layer-group"></i> Full Stack Development</h3>
+                <div class="tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express.js</span>
+                    <span class="tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-brain"></i> AI & Core Subjects</h3>
+                <div class="tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">DSA</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">DBMS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div>
+                    <h3>Loan Approval Prediction</h3>
+                    <p>Built a predictive machine learning model leveraging NumPy, Pandas, Matplotlib, and Seaborn for data preprocessing, visualization, and accurate decision analysis.</p>
+                </div>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Pandas</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>Sales Dashboard</h3>
+                    <p>Designed an interactive dashboard visualizing critical key performance indicators (KPIs) like monthly revenue and regional sales using Power BI to boost executive decision-making.</p>
+                </div>
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>Library Management System</h3>
+                    <p>Developed a desktop-based management application designed to handle book cataloging, user management records, and issuing workflows seamlessly.</p>
+                </div>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">DBMS</span>
+                    <span class="tag">OOP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Bachelor of Computer Applications - Artificial Intelligence</h3>
+                <div class="sub">Invertis University | 2024 - 2027</div>
+                <p>CGPA: 7.5 | Studying core computer science subjects, machine learning, and software development methodologies.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Certifications & Training</h3>
+                <p>• Fluid Dynamics Virtual Internship Certificate</p>
+                <p>• LinkedIn Professional Skill Certifications</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <p>I am actively looking for full-time opportunities or internships in Java Full Stack and Web Development. Feel free to reach out!</p>
+            <p style="margin-top: 1rem; color: var(--primary);">
+                <i class="fa-solid fa-envelope"></i> saxenaj799@gmail.com <br>
+                <i class="fa-solid fa-phone"></i> +91 9258997391
+            </p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yug-saxena-47b3b3331" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/YugSaxena8516" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yug Saxena. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
